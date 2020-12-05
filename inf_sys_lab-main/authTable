@@ -1,0 +1,17 @@
+CREATE TABLE user_groups (id int not null auto_increment, role varchar (20) not null, login varchar (20) not null, password varchar (20) not null, primary key (id));
+
+insert into user_groups (role, login, password) values ('Worker', 'Worker', 'qwerty');
+
+create user 'Worker'@'localhost' identified by 'qwerty';
+GRANT SELECT ON worker TO 'Worker'@'localhost';
+
+create user 'Guest'@'localhost' identified by 'user_guest';
+GRANT SELECT ON user_groups TO 'Guest'@'localhost';
+
+create user 'Manager'@'localhost' identified by 'qwerty';
+GRANT SELECT, INSERT ON cart TO 'Manager'@'localhost';
+GRANT DROP ON cart TO 'Manager'@'localhost';
+
+CREATE TABLE cart (id_cart INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, id_catalog INTEGER, name VARCHAR(50), amount INTEGER);
+
+CREATE TABLE catalog ( id_catalog INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, name VARCHAR(50), price INTEGER);

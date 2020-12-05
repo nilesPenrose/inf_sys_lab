@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Каталог</title>
+</head>
+<body bgcolor=silver text=black>
+<h2>Каталог тарифов</h2>
+<br><br>
+{% if  catalog %}
+    {% for item in catalog %}
+
+    <form action="" method=POST>
+      <input type=hidden name = choice_name value='{{item.name}}'>
+      <input type=hidden name = choice_id value={{item.id_catalog}}>
+      {{item.name}}
+      <input type=text name = amount>
+      <input type=submit value='Добавить' name='choice'><br><br>
+    </form>
+    {%endfor%}
+    <form action="" method=POST>
+      <input type=submit value='Оформить заказ' name = 'purchase'>
+      <input type=submit value='Показать корзину: {{ in_cart }}' name = 'show_cart'>
+    </form>
+{% else %}
+    <p>Нет данных</p>
+{% endif %}
+    <br>
+    <a href = "/menu">Назад в главное меню</a>
+
+</body>
+</html>

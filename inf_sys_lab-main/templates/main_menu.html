@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Главное меню</title>
+  </head>
+  <body bgcolor=silver text=black>
+    <h2>Главное меню</h2>
+    <p> Уровень доступа: {{ user_group }} </p>
+    <br><br>
+    <div>
+        {%for m in menu%}
+        <li> <a href="{{m.url}}">{{m.name}}</a></li><br><br>
+        {%endfor%}
+    </div>
+
+  </body>
+</html>

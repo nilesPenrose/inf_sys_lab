@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Заказ</title>
+</head>
+<body bgcolor=silver text=black>
+<h2>Ваш заказ</h2>
+<br><br>
+{% if cart %}
+    <table border=1 width=60%>
+        <tr>
+            <td align=center> Название</td>
+            <td align=center> Кол-во</td>
+        </tr>
+        {% for row in cart %}
+            <tr>
+                <td align=center>{{ row.choice_name }}</td>
+                <td align=center>{{ row.amount }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <form action="" method=POST>
+      <input type=submit value='Купить' name = 'exit'>
+    </form>
+{% else %}
+    <p>Пусто</p>
+{% endif %}
+<br>
+<a href="/purchase"> Назад к каталогу</a>
+</body>
+</html>

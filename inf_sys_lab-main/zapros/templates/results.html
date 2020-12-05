@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <title>Working with db</title>
+  </head>
+  <body bgcolor=silver text=black>
+    <h2>Результаты</h2>
+    <br><br>
+    {% if workers %}
+    <table border =1 width = 80%>
+    <tr>
+      <td align = center> Имя </td>
+    </tr>
+        {%for row in workers%}
+         <tr>
+            <td align=center> {{row['name']}} </td>
+         </tr>
+        {% endfor %}
+    {% else %}
+        <p>Нет данных</p>
+    {% endif %}
+  </table>
+  <br>
+  <a href="/request1"> Назад к форме ввода</a><br><br>
+  <a href="/menu"> Назад в главное меню</a>
+  </body>
+</html>
